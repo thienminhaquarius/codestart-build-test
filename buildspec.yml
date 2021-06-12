@@ -19,10 +19,6 @@ phases:
     commands:
       # Discover and run unit tests in the 'tests' directory
       - npm test
-
-      # after pass test, move dependencies to layer
-      - mkdir -p ./dependencies-layer/nodejs
-      - cp ./node_modules ./dependencies-layer/nodejs      
   build:
     commands:
       # Use AWS SAM to package the application using AWS CloudFormation
