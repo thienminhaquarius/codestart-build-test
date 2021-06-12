@@ -1,15 +1,13 @@
 var express = require('express');
 var app = express();
-var tuc = require('temp-units-conv');
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.send({
-    "Output": "Hello World edited!",
-    "temp": tuc.k2c(373.15)
+    "Output": "Hello World edited!"
   });
 });
 
-app.post('/', function (req, res) {
+app.post('/', function(req, res) {
   res.send({
     "Output": "Hello World!"
   });

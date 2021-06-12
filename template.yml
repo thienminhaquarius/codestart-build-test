@@ -17,9 +17,6 @@ Parameters:
 
 Globals:
   Function:
-    Runtime: nodejs12.x
-    Layers:
-     - !Ref DependenciesLayer
     AutoPublishAlias: live
     DeploymentPreference:
       Enabled: true
@@ -32,6 +29,7 @@ Resources:
     Properties:
       FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-HelloWorld'
       Handler: index.handler
+      Runtime: nodejs12.x
       Environment:
         Variables:
           NODE_ENV: production
@@ -50,19 +48,6 @@ Resources:
           Properties:
             Path: /
             Method: post
-            
-  DependenciesLayer:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-      LayerName: dependencies-libs
-      Description: Dependencies layer for common code
-      ContentUri: dependencies-layer/
-      CompatibleRuntimes:
-              - nodejs12.x
-      LicenseInfo: 'MIT'
-      RetentionPolicy: Retain
-      Role: !Ref LambdaExecutionRole
-
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
