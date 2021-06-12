@@ -57,6 +57,10 @@ Resources:
       LayerName: dependencies-libs
       Description: Dependencies layer for common code
       ContentUri: dependencies-layer/
+      CompatibleRuntimes:
+              - nodejs12.x
+      LicenseInfo: 'MIT'
+      RetentionPolicy: Retain
 
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
