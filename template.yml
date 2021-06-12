@@ -61,6 +61,7 @@ Resources:
               - nodejs12.x
       LicenseInfo: 'MIT'
       RetentionPolicy: Retain
+      Role: !Ref CodeDeployRole
 
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
