@@ -37,6 +37,8 @@ Resources:
         Fn::GetAtt:
         - LambdaExecutionRole
         - Arn
+      Layers:
+       - !Ref TestLayer
       Events:
         GetEvent:
           Type: Api
@@ -48,6 +50,13 @@ Resources:
           Properties:
             Path: /
             Method: post
+  TestLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: test-layer
+      ContentUri: dependencies-layer/
+      CompatibleRuntimes:
+       - nodejs12.x
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role

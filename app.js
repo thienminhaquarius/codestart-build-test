@@ -1,9 +1,11 @@
 var express = require('express');
 var app = express();
+var tuc = require('temp-units-conv')
 
 app.get('/', function(req, res) {
   res.send({
-    "Output": "Hello World edited dev!"
+    "Output": "Hello World edited dev!",
+    "layer": tuc.k2c(373.15)
   });
 });
 
